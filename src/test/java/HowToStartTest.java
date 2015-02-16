@@ -39,6 +39,7 @@ public class HowToStartTest {
 //        WebDriverRunner.setWebDriver(driver);
     }
 
+
     @Test
     public void startTest() {
         open("/dynamic_controls");
