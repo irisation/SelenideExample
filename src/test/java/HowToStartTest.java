@@ -1,3 +1,5 @@
+import com.codeborne.selenide.CollectionCondition;
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.testng.BrowserPerTest;
@@ -16,9 +18,10 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Condition.disappear;
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.CollectionCondition.texts;
 
 @Listeners({BrowserPerTest.class, ScreenShooter.class})
 //указываем когда и как мы создаём браузер -- для каждого теста(класса);
@@ -47,6 +50,13 @@ public class HowToStartTest {
 //        $(By.linkText("Dynamic Controls")).click();
         $(By.id("btn")).click();
         $(By.id("checkbox")).should(disappear);
+    }
+
+    @Test
+    public void collectionTest() {
+        open("");
+        $$("li>a").shouldHaveSize(35).filter(Condition.text("File")).shouldHaveSize(3).shouldHave(texts("file"));
+
     }
 
     @Test
