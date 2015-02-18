@@ -14,14 +14,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import pages.HomePage;
+import pages.LoginPage;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Condition.disappear;
 import static com.codeborne.selenide.CollectionCondition.texts;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.*;
 
 @Listeners({BrowserPerTest.class, ScreenShooter.class})
 //указываем когда и как мы создаём браузер -- для каждого теста(класса);
@@ -72,4 +74,13 @@ public class HowToStartTest {
         new WebDriverWait(driver, 10000).until(ExpectedConditions.invisibilityOfElementLocated(By.id("checkbox")));
         driver.quit();
     }
+
+    @Test
+    public void loginTest() {
+        open("", HomePage.class)
+                .goTo("Form Authentication", LoginPage.class)
+                .login("tomsmith", "SuperSecretPassword!")
+                .shouldLogin();
+    }
+//    negativeLoginTest
 }
