@@ -1,6 +1,5 @@
 package pages;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -16,5 +15,9 @@ public class SuccessfulLoginPage {
 
     public void shouldLogin() {
         loginMessage.shouldBe(visible, text("You logged into a secure area!"));
+    }
+
+    public void logout() {
+        logoutButton.click();
     }
 }

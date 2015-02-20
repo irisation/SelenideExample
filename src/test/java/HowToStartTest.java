@@ -34,6 +34,7 @@ public class HowToStartTest {
     public void setup() {
 //        Configuration.browser = "chrome"; default is firefox -- не оставлять в коде!
         // mvn -Dbrowser=chrome
+        Configuration.browser = "chrome";
         Configuration.baseUrl = "http://the-internet.herokuapp.com";
         Configuration.timeout = 10000;
 //        Configuration.remote = "http://localhost:4444/wd/hub";
@@ -82,5 +83,14 @@ public class HowToStartTest {
                 .login("tomsmith", "SuperSecretPassword!")
                 .shouldLogin();
     }
-//    negativeLoginTest
+
+    @Test
+    public void negativeLoginTest() {
+        open("", HomePage.class)
+                .goTo("Form Authentication", LoginPage.class)
+                .setUserName("user")
+                .setPassword("pass")
+                .submit()
+                .shouldNotLogin();
+    }
 }

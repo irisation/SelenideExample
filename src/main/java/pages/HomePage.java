@@ -1,22 +1,17 @@
 package pages;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.ElementsCollection;
+
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.support.FindAll;
+
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
+
 import org.openqa.selenium.support.How;
-
 import java.util.List;
-
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
 
 public class HomePage {
 
-    @FindBy(how = How.CSS, using = "li > a[href]")
+    @FindBy(how = How.CSS, using = "li > a")
     private List<SelenideElement> references;//ElementsCollection references;
 
     public <PageObjectClass> PageObjectClass goTo(String ref, Class<PageObjectClass> pageObjectClassClass) {

@@ -1,5 +1,6 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -9,14 +10,17 @@ import static com.codeborne.selenide.Selenide.page;
 
 public class LoginPage {
 
-    @FindBy(how = How.ID, using = "username")
+    @FindBy(id = "username")
     private SelenideElement userName;
 
-    @FindBy(how = How.ID, using = "password")
+    @FindBy(id = "password")
     private SelenideElement password;
 
-    @FindBy(how = How.CSS, using = "button[type=submit]")
+    @FindBy(css = "button[type=submit]")
     private SelenideElement submit;
+
+    @FindBy(id = "flash")
+    private SelenideElement validationMessage;
 
     public LoginPage fillForm(String user, String pass) {
         userName.val(user);
@@ -43,6 +47,11 @@ public class LoginPage {
     public LoginPage setPassword(String pass) {
         password.val(pass);
         return this;
+    }
+
+    public void shouldNotLogin() {
+        System.out.println("debug");
+        validationMessage.should(Condition.appear, Condition.text("Your username is invalid!"));
     }
 
     public String getUserName() {
