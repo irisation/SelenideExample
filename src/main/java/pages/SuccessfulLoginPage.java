@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import static com.codeborne.selenide.Condition.*;
 
 public class SuccessfulLoginPage {
-
     @FindBy(id = "flash")
     private SelenideElement loginMessage;
 

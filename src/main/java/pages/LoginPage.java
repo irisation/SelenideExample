@@ -54,6 +54,7 @@ public class LoginPage {
         validationMessage.should(Condition.appear, Condition.text("Your username is invalid!"));
     }
 
+
     public String getUserName() {
         return userName.val();
     }

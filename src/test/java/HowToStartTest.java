@@ -86,6 +86,7 @@ public class HowToStartTest {
                 .shouldLogin();
     }
 
+
     @Test
     public void negativeLoginTest() {
         open("", HomePage.class)
