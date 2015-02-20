@@ -17,7 +17,7 @@ import static com.codeborne.selenide.Selenide.page;
 public class HomePage {
 
     @FindBy(how = How.CSS, using = "li > a[href]")
-    private List<SelenideElement> references;//ElementsCollection references;
+    private List<SelenideElement> references; //ElementsCollection references;
 
     public <PageObjectClass> PageObjectClass goTo(String ref, Class<PageObjectClass> pageObjectClassClass) {
         for (SelenideElement element : references) {
