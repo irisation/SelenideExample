@@ -45,6 +45,7 @@ public class LoginPage {
         return this;
     }
 
+
     public String getUserName() {
         return userName.val();
     }

@@ -76,6 +76,7 @@ public class HowToStartTest {
     }
 
 
+
     @Test
     public void loginTest() {
         open("", HomePage.class)
