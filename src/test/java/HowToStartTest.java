@@ -76,6 +76,8 @@ public class HowToStartTest {
         driver.quit();
     }
 
+
+
     @Test
     public void loginTest() {
         open("", HomePage.class)
